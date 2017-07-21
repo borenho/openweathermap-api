@@ -11,6 +11,15 @@ def get_url(city):
 
     return full_query
 
+def fetch_data(full_query):
+    url = requests.get(full_query)
+    # Parse the json dat so it can be used as a normal dict
+    raw_data = url.json()
+    # It's a good practice to always close opened urls!
+    url.close()
+
+    return raw_data
+
 if __name__ == 'main':
     print("-------------- Know Your City's Weather -------------")
     print('Helooooooooooo')
