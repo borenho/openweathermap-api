@@ -40,8 +40,19 @@ def organise_data(raw_data):
 
     return data
 
+def output_data(data):
+    """
+    Prints the data onto the terminal
+    Runs after the main fuction below is called 
+    """
+    print('Current weather in: {}, {}'.format(data['city'], data['country']))
+    print('Temperature: {}'.format(data['temperature']))
+
 if __name__ == 'main':
     print("-------------- Know Your City's Weather -------------")
     print('Helooooooooooo')
     # Get city name from the user
     city = input("Enter your city's name: ")
+
+    # Now run your functions!
+    output_data(organise_data(fetch_data(city)))
