@@ -35,7 +35,9 @@ def organise_data(raw_data):
     data = dict(
         city = raw_data.get('name'),
         country = raw_data.get('sys').get('country'),
-        temperature = raw_data.get('main').get('temp')
+        temperature = raw_data.get('main').get('temp'),
+        maximum_temperature = raw_data.get('main').get('temp_max'),
+        minimum_temperature = raw_data.get('main').get('temp_min')
     )
 
     return data
@@ -45,8 +47,12 @@ def output_data(data):
     Prints the data onto the terminal
     Runs after the main fuction below is called 
     """
+    print('')
     print('Current weather in: {}, {}'.format(data['city'], data['country']))
-    print('Temperature: {}'.format(data['temperature']))
+    print('Temperature: {} deg Celsius'.format(data['temperature']))
+    print('Max: {} deg Celsius'.format(data['maximum_temperature']))
+    print('Min: {} deg Celsius'.format(data['minimum_temperature']))
+
 
 if __name__ == '__main__':
     print("-------------- Know Your City's Weather -------------")
