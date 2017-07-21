@@ -28,6 +28,18 @@ def fetch_data(full_query):
 
     return raw_data
 
+def organise_data(raw_data):
+    """ 
+    Organizes the raw data into a good dictionary you can easily query 
+    """
+    data = dict(
+        city = raw_data.get('name'),
+        country = raw_data.get('sys').get('country'),
+        temperature = raw_data.get('main').get('temp')
+    )
+
+    return data
+
 if __name__ == 'main':
     print("-------------- Know Your City's Weather -------------")
     print('Helooooooooooo')
