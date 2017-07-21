@@ -9,7 +9,7 @@ def get_url(city):
     my_api_key = 'fda7542e1133fa0b1b312db624464cf5'
     unit = 'metric'    # To get temperature in Celsius
     weather_query = 'http://api.openweathermap.org/data/2.5/weather?q='
-    full_query = weather_query + city + '&units=' + unit + '&APPID=' + my_api
+    full_query = weather_query + city + '&units=' + unit + '&APPID=' + my_api_key
     # This full_query results in smth like
     # 'http://api.openweathermap.org/data/2.5/weather?q=Nairobi&units=metric&APPID=YOUR-KEY-HERE'
 
@@ -48,11 +48,11 @@ def output_data(data):
     print('Current weather in: {}, {}'.format(data['city'], data['country']))
     print('Temperature: {}'.format(data['temperature']))
 
-if __name__ == 'main':
+if __name__ == '__main__':
     print("-------------- Know Your City's Weather -------------")
     print('Helooooooooooo')
     # Get city name from the user
     city = input("Enter your city's name: ")
 
     # Now run your functions!
-    output_data(organise_data(fetch_data(city)))
+    output_data(organise_data(fetch_data(get_url(city))))
